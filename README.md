@@ -16,3 +16,15 @@ curl --location 'http://app-a959b2a3-0619-40ff-8d61-13c714ac5c6e.cleverapps.io/p
 --form 'reason="Me gusta mucho"' \
 --form 'image=@""'
 ```
+- DELETE
+```
+curl --location --request DELETE 'http://app-a959b2a3-0619-40ff-8d61-13c714ac5c6e.cleverapps.io/delete_favorite_game/9'
+```
+- PUT
+```
+curl --location --request PUT 'http://app-a959b2a3-0619-40ff-8d61-13c714ac5c6e.cleverapps.io/edit_favorite_game/2' \
+--form 'name="Zelda"' \
+--form 'launch_date="2023-01-01"' \
+--form 'amount_stars="5"' \
+--form 'reason="Me gusta muchisimo"'
+```
