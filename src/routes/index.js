@@ -19,7 +19,7 @@ router.get("/get_favorite_games", (req, res) => {
 
 router.post("/post_favorite_game", upload.single("image"), (req, res) => {
   const { name, launch_date, amount_stars, reason } = req.body;
-  const image_path = path.join("uploads", req.file.filename);
+  const image_path = req.file ? `uploads/${req.file.filename}` : null;
 
   const query =
     "INSERT INTO favorite_games (image_url, name, launch_date, amount_stars, reason) VALUES (?, ?, ?, ?, ?)";
