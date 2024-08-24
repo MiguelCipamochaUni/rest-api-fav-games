@@ -4,14 +4,6 @@ const db = require("../database/database");
 const path = require("path");
 const upload = require("../utils/storage");
 
-db.connect((err) => {
-  if (err) {
-    console.error("Error connecting to the database: " + err.stack);
-    return;
-  }
-  console.log("Connected to the database as ID " + db.threadId);
-});
-
 //Raiz
 router.get("/get_favorite_games", (req, res) => {
   db.query("SELECT * FROM favorite_games", (error, results) => {

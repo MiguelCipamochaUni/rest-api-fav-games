@@ -1,9 +1,11 @@
 const mysql = require("mysql");
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
+  connectionLimit: 10, // Número máximo de conexiones en el pool
   host: process.env.MYSQL_ADDON_HOST,
   database: process.env.MYSQL_ADDON_DB,
   user: process.env.MYSQL_ADDON_USER,
   password: process.env.MYSQL_ADDON_PASSWORD,
 });
 
-module.exports = connection;
+// Exporta el pool en lugar de una sola conexión
+module.exports = pool;
